@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Locker System</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(0,0,0,0.3);
+            padding: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .camera-container {
+            margin: 30px auto;
+            width: 60%;
+            border: 5px solid #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        video, img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons a {
+            background-color: #ff7e5f;
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: 0.3s;
+        }
+
+        .buttons a:hover {
+            background-color: #feb47b;
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<header>🚪 Smart Locker Room Access System 🚪</header>
+
+<div class="camera-container">
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+</div>
+
+<div class="buttons">
+    <a href="/start_scan">🔒 Lock My Locker (Scan Face)</a>
+    <a href="/open_locker">🔓 Unlock My Locker (Verify Face)</a>
+</div>
+
+<footer>Designed with ❤️ for Secure Access</footer>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Denied</title>
+    <style>
+        body {
+            background-color: #ffcccc;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        h1 {
+            color: red;
+            font-size: 48px;
+        }
+        p {
+            font-size: 24px;
+        }
+        img {
+            width: 200px;
+            margin-top: 30px;
+        }
+        .error-details {
+            background-color: #fff;
+            color: #333;
+            padding: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Shake animation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            50% { transform: translateX(15px); }
+            75% { transform: translateX(-15px); }
+        }
+        .shake {
+            animation: shake 0.5s ease-in-out 3;
+        }
+        
+        /* Pulse animation for button */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .btn-retry {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: #ff4444;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        .btn-retry:hover {
+            background: #ff6666;
+        }
+    </style>
+</head>
+<body>
+    <h1>❌ Access Denied!</h1>
+    <p>Unauthorized access detected!</p>
+    
+    <a href="/" class="btn-retry">Try Again</a>
+
+    <script>
+        function playBuzzer() {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            oscillator.type = 'sawtooth';  // More harsh sound
+            oscillator.frequency.value = 600;
+            gainNode.gain.value = 0.3;
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            // Beep pattern: 0.1s on, 0.1s off (repeated 3 times)
+            const startTime = audioCtx.currentTime;
+            
+            // First beep
+            gainNode.gain.setValueAtTime(0.3, startTime);
+            gainNode.gain.setValueAtTime(0.001, startTime + 0.1);
+            
+            // Second beep
+            gainNode.gain.setValueAtTime(0.3, startTime + 0.2);
+            gainNode.gain.setValueAtTime(0.001, startTime + 0.3);
+            
+            // Third beep
+            gainNode.gain.setValueAtTime(0.3, startTime + 0.4);
+            gainNode.gain.setValueAtTime(0.001, startTime + 0.5);
+            
+            oscillator.start();
+            oscillator.stop(startTime + 0.5);
+        }
+    
+        // Play immediately and every 3 seconds
+        playBuzzer();
+        setInterval(playBuzzer, 3000);
+    </script>
+</body>
+</html>

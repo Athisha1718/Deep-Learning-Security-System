@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Granted</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0ffe0, #a0ffa0);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        h1 {
+            color: #009900;
+            font-size: 48px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        p {
+            font-size: 24px;
+            color: #006600;
+        }
+        img {
+            width: 200px;
+            margin-top: 30px;
+            filter: drop-shadow(0 0 10px rgba(0,150,0,0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+        .btn-continue {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: #00aa00;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-continue:hover {
+            background: #00cc00;
+            transform: scale(1.05);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ Access Granted!</h1>
+    <p>Welcome! Locker is now open.</p>
+
+    <a href="/" class="btn-continue">Continue</a>
+
+    <!-- Confetti and effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Play success sound
+        var audio = new Audio('https://www.soundjay.com/buttons/sounds/button-09.mp3');
+        audio.play();
+        
+        // Confetti effect
+        function launchConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+        
+        // Initial burst
+        launchConfetti();
+        
+        // Continue bursts every few seconds
+        setInterval(launchConfetti, 3000);
+        
+        // Add some random floating confetti
+        setInterval(function() {
+            confetti({
+                particleCount: 5,
+                angle: randomInRange(55, 125),
+                spread: randomInRange(50, 70),
+                origin: { x: Math.random(), y: Math.random() }
+            });
+        }, 500);
+        
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+    </script>
+</body>
+</html>
