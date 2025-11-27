@@ -13,7 +13,7 @@ This project is especially relevant given growing demand for AI-powered surveill
 
 **Setup & Usage
 **
-Clone the repository - git clone https://github.com/Kalpana-25-hello/deep-learning-security-system.git - cd deep-learning-security-system
+Clone the repository - git clone https://github.com/Athisha1718/Deep-Learning-Security-System.git - cd Deep-Learning-Security-System
 
 Install dependencies - Python 3.x
 - OpenCV
