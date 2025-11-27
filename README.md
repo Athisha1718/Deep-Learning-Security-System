@@ -11,8 +11,8 @@ Provide real-time security checks for restricted entry or sensitive areas.
 Offer a reference implementation for users wanting to build AI based monitoring systems.
 This project is especially relevant given growing demand for AI-powered surveillance and security automation.
 
-**Setup & Usage
-**
+**Setup & Usage**
+
 Clone the repository - git clone https://github.com/Athisha1718/Deep-Learning-Security-System.git - cd Deep-Learning-Security-System
 
 Install dependencies - Python 3.x
